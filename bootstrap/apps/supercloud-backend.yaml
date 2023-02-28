@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: supercloud-backend
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Client-Engineering-Industry-Squad-1/supercloud-iac.git
+    path: apps/supercloud-backend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: supercloud
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

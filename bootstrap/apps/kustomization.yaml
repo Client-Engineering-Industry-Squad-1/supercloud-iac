@@ -1,2 +1,3 @@
 resources:
+- supercloud-backend.yaml
 - supercloud-namespace.yaml
