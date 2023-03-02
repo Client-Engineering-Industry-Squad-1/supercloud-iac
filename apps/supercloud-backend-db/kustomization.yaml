@@ -1,5 +1,6 @@
 resources:
-- supercloud-backend-db-deployment.yaml
 - supercloud-backend-db-configmap.yaml
-- supercloud-backend-db-secret.yaml
+- supercloud-backend-db-deployment.yaml
 - supercloud-backen-db-managment.yaml
+- supercloud-backend-db-pvc.yaml
+- supercloud-backend-db-secret.yaml

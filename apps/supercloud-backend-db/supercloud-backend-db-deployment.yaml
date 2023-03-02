@@ -30,7 +30,21 @@ spec:
                 secretKeyRef:
                   name: mongodb-secret
                   key: mongo-root-password
----
+          volumeMounts: 
+              - name: mongo-key 
+                mountPath: "/etc/secrets-volume" 
+                readOnly: true 
+            - name: mongo-persistent-storage 
+                mountPath: /data 
+      volumes: 
+      - name: mongo-key 
+        secret: 
+          defaultMode: 0400 
+          secretName: mongo-key 
+      - name: mongo-persistent-storage 
+        persistentVolumeClaim: 
+          claimName: mongo-0-disk
+--- 
 apiVersion: v1
 kind: Service
 metadata:

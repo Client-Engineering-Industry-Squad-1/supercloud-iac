@@ -1,1 +1,11 @@
-# todo
+apiVersion: v1 
+kind: PersistentVolumeClaim 
+metadata: 
+  name: mongo-0-disk 
+  namespace: mongodb 
+spec: 
+  accessModes: 
+  - ReadWriteOnce 
+  resources: 
+    requests: 
+      storage: 512Gi 
