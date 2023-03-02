@@ -14,8 +14,8 @@ spec:
     spec: 
       terminationGracePeriodSeconds: 10 
       containers: 
-        - name: mongo
-          image: mongodb
+        - name: mongodb
+          image: mongo
           env: 
             - name: MONGODB_USERNAME 
               value: admin 
