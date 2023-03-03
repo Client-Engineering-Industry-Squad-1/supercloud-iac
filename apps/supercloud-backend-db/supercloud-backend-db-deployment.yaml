@@ -36,7 +36,7 @@ spec:
               mountPath: "/etc/secrets-volume" 
               readOnly: true 
             - name: mongo-persistent-storage 
-              mountPath: /data 
+              mountPath: /data/db 
       volumes: 
       - name: mongo-key 
         secret: 
