@@ -1,7 +1,7 @@
 resources:
 
-- infra/redis-scc.yaml
-- infra/redis-sa.yaml
-# - service/redis-catalog.yaml
-- service/redis-operator.yaml
-- service/redis-instance.yaml
+# - infra/redis-scc.yaml
+# - infra/redis-sa.yaml
+# # - service/redis-catalog.yaml
+# - service/redis-operator.yaml
+# - service/redis-instance.yaml
