@@ -2,4 +2,4 @@ resources:
 # - supercloud-backend.yaml
 - supercloud-namespace.yaml
 - supercloud-backend-db.yaml
-# - redis-deployment.yaml
+- redis-deployment.yaml
