@@ -16,7 +16,7 @@ allowedCapabilities:
 runAsUser:
   type: MustRunAs
   uid: 1001
-FSGroup:
+fsGroup:
   type: MustRunAs
   ranges: 1001,1001
 seLinuxContext:
