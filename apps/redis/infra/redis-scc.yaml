@@ -4,6 +4,12 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "105"
   name: redis-enterprise-scc
+readOnlyRootFilesystem: false
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegedContainer: false
 allowedCapabilities:
   - SYS_RESOURCE
