@@ -17,7 +17,6 @@ runAsUser:
   type: MustRunAs
   uid: 1001
 fsGroup:
-  type: MustRunAs
-  uid: 1001
+  type: RunAsAny
 seLinuxContext:
   type: RunAsAny
