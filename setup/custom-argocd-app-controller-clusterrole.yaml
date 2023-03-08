@@ -371,3 +371,9 @@ rules:
       - db2u.databases.ibm.com
     resources:
       - dvservices
+  - verbs:
+      - '*'
+    apiGroups:
+      - app.redislabs.com
+    resources:
+      - RedisEnterpriseCluster
