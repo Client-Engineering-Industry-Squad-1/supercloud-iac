@@ -376,4 +376,4 @@ rules:
     apiGroups:
       - app.redislabs.com
     resources:
-      - redisenterprisecluster
+      - redisenterpriseclusters
