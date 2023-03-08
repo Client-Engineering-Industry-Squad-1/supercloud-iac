@@ -18,6 +18,6 @@ runAsUser:
   uid: 1001
 fsGroup:
   type: MustRunAs
-  ranges: 1001,1001
+  uid: 1001
 seLinuxContext:
   type: RunAsAny
