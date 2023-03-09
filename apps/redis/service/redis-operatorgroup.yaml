@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '220'
+    labels:
+      operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
+  name: supercloud-og
+  namespace: supercloud
+spec:
+  targetNamespaces:
+    - supercloud

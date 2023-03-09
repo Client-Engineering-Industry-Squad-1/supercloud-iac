@@ -3,6 +3,7 @@ kind: Subscription
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "225"
+    olm.operatorGroup: supercloud-og
   labels:
     operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
   name: redis-enterprise-operator-cert
