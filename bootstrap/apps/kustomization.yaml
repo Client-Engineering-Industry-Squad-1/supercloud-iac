@@ -1,5 +1,5 @@
 resources:
-- supercloud-backend.yaml
+# - supercloud-backend.yaml
 - banner.yaml
 - supercloud-namespace.yaml
 - supercloud-backend-db.yaml
