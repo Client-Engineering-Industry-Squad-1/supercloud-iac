@@ -9,6 +9,3 @@ metadata:
 spec:
   targetNamespaces:
     - supercloud
-status:
-  namespaces:
-    - supercloud
