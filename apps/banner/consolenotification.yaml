@@ -4,6 +4,6 @@ metadata:
   name: banner
 spec:
   backgroundColor: white
-  color: '#fff'
+  color: Black
   location: BannerTop
   text: "\U0001F534 \U0001F535 〄"
