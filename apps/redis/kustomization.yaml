@@ -4,5 +4,5 @@ resources:
 - infra/redis-sa.yaml
 - service/redis-catalog.yaml
 # - service/redis-csv.yaml
-# - service/redis-sub.yaml
+- service/redis-sub.yaml
 # - service/redis-instance.yaml
