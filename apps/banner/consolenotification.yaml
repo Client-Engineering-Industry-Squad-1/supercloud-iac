@@ -4,6 +4,6 @@ metadata:
   name: banner
 spec:
   backgroundColor: white
-  color: Black
+  color: navy
   location: BannerTop
-  text: "🌐 \U0001F534 \U0001F535  "
+  text: "🌐 PepsiCo"
