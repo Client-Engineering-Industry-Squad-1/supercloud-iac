@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Client-Engineering-Industry-Squad-1/supercloud-iac.git
     path: bootstrap/apps
+    targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
