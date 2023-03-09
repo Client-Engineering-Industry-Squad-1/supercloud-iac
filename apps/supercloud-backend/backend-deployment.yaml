@@ -1,21 +1,85 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  annotations:
+    argocd.argoproj.io/sync-wave: '225'
+  name: release-name-base
+  annotations:
   labels:
-    app: nginx
+    app.kubernetes.io/name: base
+    helm.sh/chart: base-1.1.4
+    app.kubernetes.io/instance: release-name
+    app: release-name
+    app.kubernetes.io/part-of: ascent
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app.kubernetes.io/name: base
+      app.kubernetes.io/instance: release-name
   template:
     metadata:
       labels:
-        app: nginx
+        app.kubernetes.io/name: base
+        app.kubernetes.io/instance: release-name
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80
+        - name: redis
+          image: bitnami/redis
+          ports:
+            - containerPort: 6379
+              name: redis
+              protocol: TCP
+          env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+        - name: base
+          image: "replace:replace"
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - name: http
+              containerPort: 3001
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          env:
+            - name: DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: ascent-mongo-config
+                  key: binding
+            - name: STORAGE
+              valueFrom:
+                secretKeyRef:
+                  name: ascent-cos-config
+                  key: binding
+            - name: INSTANCE_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: ascent
+                  key: instance-id
+            - name: BIFROST
+              valueFrom:
+                configMapKeyRef:
+                  name: ascent
+                  key: bifrost
+            - name: OCP_API_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ascent-oauth-config
+                  key: api-url
+            - name: INGRESS_HOST
+              value: ""
+            - name: PROTOCOLS
+              value: ""
+            - name: LOG_LEVEL
+              value: "debug"
+          resources:
+            null
