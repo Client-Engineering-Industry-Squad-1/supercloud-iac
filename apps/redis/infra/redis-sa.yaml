@@ -7,17 +7,6 @@ metadata:
   namespace: supercloud
   labels:
     operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
-  # ownerReferences:
-  #   - apiVersion: operators.coreos.com/v1alpha1
-  #     kind: ClusterServiceVersion
-  #     name: redis-enterprise-operator.v6.2.18-41c
-  #     controller: false
-  #     blockOwnerDeletion: false
-secrets:
-  - name: redis-enterprise-operator-token-z7lnb
-  - name: redis-enterprise-operator-dockercfg-shtxd
-imagePullSecrets:
-  - name: redis-enterprise-operator-dockercfg-shtxd
 ---
 kind: ServiceAccount
 apiVersion: v1
@@ -26,14 +15,3 @@ metadata:
   namespace: supercloud
   labels:
     operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
-  # ownerReferences:
-  #   - apiVersion: operators.coreos.com/v1alpha1
-  #     kind: ClusterServiceVersion
-  #     name: redis-enterprise-operator.v6.2.18-41c
-  #     controller: false
-  #     blockOwnerDeletion: false
-secrets:
-  - name: rec-token-ct6lw
-  - name: rec-dockercfg-k66wm
-imagePullSecrets:
-  - name: rec-dockercfg-k66wm
