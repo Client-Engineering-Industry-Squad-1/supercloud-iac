@@ -8,6 +8,7 @@ metadata:
       operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
     olm.providedAPIs: >-
       RedisEnterpriseCluster.v1.app.redislabs.com,RedisEnterpriseDatabase.v1alpha1.app.redislabs.com
+  name: supercloud-77dnd
   namespace: supercloud
 spec:
   targetNamespaces:
