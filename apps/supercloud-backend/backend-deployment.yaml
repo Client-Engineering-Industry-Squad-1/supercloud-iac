@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '225'
+    argocd.argoproj.io/sync-wave: '220'
   name: release-name-base
   annotations:
   labels:
