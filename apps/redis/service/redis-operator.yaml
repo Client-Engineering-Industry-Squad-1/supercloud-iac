@@ -9,8 +9,6 @@ metadata:
   labels:
     operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
 spec:
-  source: certified-operators
-  # sourceNamespace: openshift-marketplace
   customresourcedefinitions:
     owned:
       - description: >-
