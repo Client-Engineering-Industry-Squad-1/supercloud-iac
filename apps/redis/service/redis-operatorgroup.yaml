@@ -3,6 +3,9 @@ kind: OperatorGroup
 metadata:
   generateName: supercloud-
   annotations:
+    argocd.argoproj.io/sync-wave: '220'
+    labels:
+      operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
     olm.providedAPIs: >-
       RedisEnterpriseCluster.v1.app.redislabs.com,RedisEnterpriseDatabase.v1alpha1.app.redislabs.com
   namespace: supercloud
