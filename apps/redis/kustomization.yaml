@@ -5,4 +5,4 @@ resources:
 - service/redis-catalog.yaml
 - service/redis-operatorgroup.yaml
 - service/redis-sub.yaml
-# - service/redis-instance.yaml
+- service/redis-instance.yaml
