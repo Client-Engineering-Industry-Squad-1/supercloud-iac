@@ -3,8 +3,68 @@ kind: ClusterServiceVersion
 metadata:
   annotations:
     olm.targetNamespaces: supercloud
-    argocd.argoproj.io/sync-wave: "225"
+    operatorframework.io/properties: >-
+      {"properties":[{"type":"olm.package","value":{"packageName":"redis-enterprise-operator-cert","version":"6.2.18-41c"}},{"type":"olm.gvk","value":{"group":"app.redislabs.com","kind":"RedisEnterpriseCluster","version":"v1"}},{"type":"olm.gvk","value":{"group":"app.redislabs.com","kind":"RedisEnterpriseCluster","version":"v1alpha1"}},{"type":"olm.gvk","value":{"group":"app.redislabs.com","kind":"RedisEnterpriseDatabase","version":"v1alpha1"}}]}
+    operators.openshift.io/infrastructure-features: '["disconnected"]'
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "app.redislabs.com/v1",
+          "kind": "RedisEnterpriseCluster",
+          "metadata": {
+            "name": "rec"
+          },
+          "spec": {
+            "nodes": 3,
+            "persistentSpec": {
+              "enabled": true
+            },
+            "uiServiceType": "ClusterIP",
+            "username": "demo@redislabs.com",
+            "redisEnterpriseNodeResources": {
+              "limits": {
+                "cpu": "4000m",
+                "memory": "4Gi"
+              },
+              "requests": {
+                "cpu": "4000m",
+                "memory": "4Gi"
+              }
+            },
+            "bootstrapperImageSpec": {
+                "repository": "registry.connect.redhat.com/redislabs/redis-enterprise-operator"
+            },
+            "redisEnterpriseServicesRiggerImageSpec": {
+                "repository": "registry.connect.redhat.com/redislabs/services-manager"
+            },
+            "redisEnterpriseImageSpec": {
+              "imagePullPolicy": "IfNotPresent",
+              "repository": "registry.connect.redhat.com/redislabs/redis-enterprise"
+            }
+          }
+        },
+        {
+          "apiVersion": "app.redislabs.com/v1alpha1",
+          "kind": "RedisEnterpriseDatabase",
+          "metadata": {
+            "name": "redb"
+          },
+          "spec": {
+            "redisEnterpriseCluster": {
+              "name": "rec"
+            }
+          }
+        }
+      ]
+    capabilities: Deep Insights
+    olm.operatorNamespace: supercloud
+    containerImage: >-
+      registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:0973c8ae3f6d9115c675c32fa63c6404d6afed7c8904d78a184ea3b4e8c4ace8
+    categories: Database
+    olm.operatorGroup: supercloud-77dnd
+  resourceVersion: '10782034'
   name: redis-enterprise-operator.v6.2.18-41c
+  uid: 20889790-480d-46ef-b1a9-e5901667c2cb
   namespace: supercloud
   labels:
     operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
@@ -657,3 +717,4 @@ spec:
 
     This can be done by running a `kubectl get storageclass` command and see if
     one of the Storage Classes' names contains a `(default)` mark.
+

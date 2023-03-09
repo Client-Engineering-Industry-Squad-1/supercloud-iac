@@ -3,11 +3,14 @@ kind: Subscription
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "225"
-  name: redis-operator-subscription
+  labels:
+    operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
+  name: redis-enterprise-operator-cert
   namespace: supercloud
 spec:
-  channel: v6.2.18-41c
-  name: redis-enterprise-operator
+  channel: production
   installPlanApproval: Automatic
+  name: redis-enterprise-operator-cert
   source: certified-operators
   sourceNamespace: openshift-marketplace
+  startingCSV: redis-enterprise-operator.v6.2.18-41c

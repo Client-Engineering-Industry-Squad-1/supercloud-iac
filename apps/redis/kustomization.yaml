@@ -4,5 +4,5 @@ resources:
 - infra/redis-sa.yaml
 - service/redis-catalog.yaml
 ### after the catalog fully deployed
-#- service/redis-operator.yaml
+- service/redis-sub.yaml
 # - service/redis-instance.yaml
