@@ -1,0 +1,9 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: banner
+spec:
+  backgroundColor: white
+  color: '#fff'
+  location: BannerTop
+  text: "\U0001F534 \U0001F535"

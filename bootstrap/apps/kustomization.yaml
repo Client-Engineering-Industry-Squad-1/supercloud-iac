@@ -1,5 +1,6 @@
 resources:
 # - supercloud-backend.yaml
+- banner.yaml
 - supercloud-namespace.yaml
 - supercloud-backend-db.yaml
 - redis-deployment.yaml
