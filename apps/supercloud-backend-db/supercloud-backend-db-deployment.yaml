@@ -13,8 +13,8 @@ spec:
         app: mongodb
     spec: 
       terminationGracePeriodSeconds: 10 
-      securityContext:
-        enabled: false
+      # securityContext:
+      #   enabled: false
       containers: 
         - name: mongodb
           image: mongo:6.0.4
