@@ -13,6 +13,8 @@ spec:
         app: mongodb
     spec: 
       terminationGracePeriodSeconds: 10 
+      securityContext:
+          enabled: false 
       containers: 
         - name: mongodb
           image: mongo:6.0.4
@@ -22,7 +24,7 @@ spec:
             - name: MONGODB_PASSWORD 
               value: password 
             - name: MONGODB_DBNAME 
-              value: admin 
+              value: supercloud-db 
             - name: MONGODB_ROLE 
               value: root 
             - name: REPLICA_ID 
