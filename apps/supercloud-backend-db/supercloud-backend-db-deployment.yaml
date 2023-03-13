@@ -3,8 +3,6 @@ kind: Deployment
 metadata: 
   name: mongodb-deployment
 spec:
-  securityContext:
-    enabled: false 
   replicas: 1 
   selector: 
     matchLabels: 
@@ -32,7 +30,9 @@ spec:
             - name: HOST 
               value: mongodb0 
           ports: 
-            - containerPort: 27017 
+            - containerPort: 27017
+          securityContext:
+            enabled: false 
           volumeMounts: 
             - name: mongo-key 
               mountPath: "/etc/secrets-volume" 
