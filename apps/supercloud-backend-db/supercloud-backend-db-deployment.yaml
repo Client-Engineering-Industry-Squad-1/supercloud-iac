@@ -2,7 +2,9 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata: 
   name: mongodb-deployment
-spec: 
+spec:
+  securityContext:
+    enabled: false 
   replicas: 1 
   selector: 
     matchLabels: 
@@ -13,8 +15,6 @@ spec:
         app: mongodb
     spec: 
       terminationGracePeriodSeconds: 10 
-      # securityContext:
-      #   enabled: false
       containers: 
         - name: mongodb
           image: mongo:6.0.4
