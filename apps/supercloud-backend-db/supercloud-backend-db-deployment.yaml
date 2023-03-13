@@ -14,7 +14,7 @@ spec:
     spec: 
       terminationGracePeriodSeconds: 10 
       securityContext:
-          enabled: false 
+        enabled: false
       containers: 
         - name: mongodb
           image: mongo:6.0.4
