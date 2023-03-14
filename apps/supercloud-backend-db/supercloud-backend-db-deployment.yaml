@@ -25,8 +25,8 @@ spec:
               value: supercloud-db 
             - name: MONGODB_ROLE 
               value: root 
-            - name: REPLICA_ID 
-              value: mongoRS 
+            # - name: REPLICA_ID 
+            #   value: mongoRS 
             - name: HOST 
               value: localhost 
           ports: 
