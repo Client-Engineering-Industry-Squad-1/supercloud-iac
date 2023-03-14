@@ -25,10 +25,10 @@ spec:
               value: supercloud-db 
             - name: MONGODB_ROLE 
               value: root 
-            # - name: REPLICA_ID 
-            #   value: mongoRS 
-            # - name: HOST 
-            #   value: mongodb0 
+            - name: REPLICA_ID 
+              value: mongoRS 
+            - name: HOST 
+              value: localhost 
           ports: 
             - containerPort: 27017
           volumeMounts: 
