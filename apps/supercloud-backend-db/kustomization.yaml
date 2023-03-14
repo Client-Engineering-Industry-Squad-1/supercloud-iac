@@ -4,3 +4,4 @@ resources:
 # - supercloud-backen-db-managment.yaml
 - supercloud-backend-db-pvc.yaml
 - supercloud-backend-db-secret.yaml
+- supercloud-backend-db-service.yaml
