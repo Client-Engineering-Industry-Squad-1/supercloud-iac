@@ -17,12 +17,14 @@ spec:
         - name: mongodb
           image: mongo:6.0.4
           env: 
-            - name: MONGODB_USERNAME 
+            - name: MONGODB_USER
               value: admin 
-            - name: MONGODB_PASSWORD 
+            - name: MONGODB_PASSWORD
               value: password 
-            - name: MONGODB_DBNAME 
+            - name: MONGODB_DATABASE 
               value: supercloud-db 
+            - name: MONGODB_ADMIN_PASSWORD
+              value: password
             - name: MONGODB_ROLE 
               value: root 
             # - name: REPLICA_ID 
