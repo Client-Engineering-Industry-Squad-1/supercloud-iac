@@ -9,6 +9,6 @@ spec:
   ports:
   - name: mongodb
     port: 27017
-    targetPort: mongodb
+    targetPort: 27017
   selector:
     app: mongodb
