@@ -1,0 +1,23 @@
+apiVersion: mongodb.com/v1
+kind: MongoDBUser
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '125'
+  name: mongo-admin-user
+  namespace: supercloud
+spec:
+  passwordSecretKeyRef:
+    name: mongo-admin-user-password
+    # Match to metadata.name of the User Secret
+    key: password
+  username: admin
+  db: admin
+  # authentication database
+  mongodbResourceRef:
+    name: mongodb-cluster
+    # Match to MongoDB resource using authentication
+  roles:
+    - db: admin
+      name: readWrite
+    - db: admin
+      name: userAdminAnyDatabase

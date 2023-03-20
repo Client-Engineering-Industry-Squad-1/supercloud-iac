@@ -1,7 +1,7 @@
 resources:
-- supercloud-backend-db-configmap.yaml
-- supercloud-backend-db-deployment.yaml
-# - supercloud-backen-db-managment.yaml
-- supercloud-backend-db-pvc.yaml
-- supercloud-backend-db-secret.yaml
-- supercloud-backend-db-service.yaml
+- mongodb-supercloud.yaml
+- mongodb-admin-user.yaml
+- mongodb-deployment.yaml
+- mongodb-opsmanger.yaml
+- ops-manager-config-secret.yaml
+- ops-manager-secrets.yaml

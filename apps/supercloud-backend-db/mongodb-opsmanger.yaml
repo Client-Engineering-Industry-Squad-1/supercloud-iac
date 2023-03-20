@@ -1,0 +1,19 @@
+apiVersion: mongodb.com/v1
+kind: MongoDBOpsManager
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '105'
+  name: ops-manager
+  namespace: supercloud
+spec:
+  externalConnectivity:
+    type: LoadBalancer
+  applicationDatabase:
+    podSpec:
+      cpu: 1
+    members: 3
+    version: 5.0.14-ent
+  configuration:
+    mms.fromEmailAddr: admin@superclouddemo.com
+  adminCredentials: ops-manager-admin-secret
+  version: 6.0.3
