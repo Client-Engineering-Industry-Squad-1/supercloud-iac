@@ -377,3 +377,15 @@ rules:
       - app.redislabs.com
     resources:
       - redisenterpriseclusters
+  - verbs:
+      - '*'
+    apiGroups:
+      - mongodb.com
+    resources:
+      - opsmanagers
+  - verbs:
+      - '*'
+    apiGroups:
+      - mongodb.com
+    resources:
+      - mongodb
