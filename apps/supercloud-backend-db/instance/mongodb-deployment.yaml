@@ -2,7 +2,7 @@ apiVersion: mongodb.com/v1
 kind: MongoDB
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '120'
+    argocd.argoproj.io/sync-wave: '220'
   name: mongodb-cluster
   namespace: supercloud
 spec:

@@ -2,7 +2,7 @@ apiVersion: mongodb.com/v1
 kind: MongoDBOpsManager
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '105'
+    argocd.argoproj.io/sync-wave: '205'
   name: ops-manager
   namespace: supercloud
 spec:

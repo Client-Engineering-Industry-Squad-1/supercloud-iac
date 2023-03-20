@@ -2,7 +2,7 @@ apiVersion: mongodb.com/v1
 kind: MongoDBUser
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '130'
+    argocd.argoproj.io/sync-wave: '230'
   name: mongo-supercloud-user
   namespace: supercloud
 spec:
