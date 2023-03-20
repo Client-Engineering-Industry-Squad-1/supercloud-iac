@@ -6,11 +6,9 @@ resources:
 #################################################################################
 ### MAKE SURE THE OPERATOR & OPS MANAGER READY BEFORE YOU DEPOL THE FOLLOWING ###
 #################################################################################
-# - instance/mongodb-deployment.yaml
-# - instance/mongodb-admin-user.yaml
-# - instance/mongodb-supercloud.yaml
-
-
-
+- instance/mongodb-deployment.yaml
+- instance/mongodb-admin-user.yaml
+- instance/mongodb-supercloud.yaml
+### other ###
 # - operator/mongodb-og.yaml
 # - operator/mongodb-catalog.yaml
