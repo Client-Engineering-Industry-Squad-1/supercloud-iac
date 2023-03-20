@@ -9,8 +9,6 @@ spec:
   externalConnectivity:
     type: LoadBalancer
   applicationDatabase:
-    podSpec:
-      cpu: 1
     members: 3
     version: 5.0.14-ent
   configuration:
