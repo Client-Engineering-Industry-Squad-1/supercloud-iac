@@ -1,7 +1,7 @@
 resources:
 - operator/mongodb-sub.yaml
 - operator/mongodb-og.yaml
-- operator/mongodb-catalog.yaml
+# - operator/mongodb-catalog.yaml
 - instance/mongodb-supercloud.yaml
 - instance/mongodb-admin-user.yaml
 - instance/mongodb-deployment.yaml
