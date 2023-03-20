@@ -389,3 +389,9 @@ rules:
       - mongodb.com
     resources:
       - mongodb
+  - verbs:
+      - '*'
+    apiGroups:
+      - mongodb.com
+    resources:
+      - mongodbusers
