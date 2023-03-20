@@ -8,7 +8,7 @@ metadata:
 spec:
   type: Standalone
   # the name of the secret in 1-ops-manager-config-secret.yaml
-  credentials: mongo-ops-manager-admin-key
+  credentials: supercloud-ops-manager-admin-key
   # the name of the cm in 1-ops-manager-config-secret.yaml
   opsManager:
     configMapRef:
