@@ -3,8 +3,6 @@ kind: OperatorGroup
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '115'
-    labels:
-      operators.coreos.com/redis-enterprise-operator-cert.supercloud: ''
   name: supercloud-og
   namespace: supercloud
 spec:
