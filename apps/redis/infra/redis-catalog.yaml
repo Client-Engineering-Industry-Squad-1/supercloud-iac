@@ -2,7 +2,7 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: CatalogSource
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '210'
+    argocd.argoproj.io/sync-wave: '110'
   name: certified-operators
   namespace: openshift-marketplace
   labels:
