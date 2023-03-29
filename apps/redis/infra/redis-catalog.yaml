@@ -5,8 +5,6 @@ metadata:
     argocd.argoproj.io/sync-wave: '110'
   name: certified-operators
   namespace: openshift-marketplace
-  labels:
-    app.kubernetes.io/instance: supercloud-redis
 spec:
   displayName: Certified Operators
   grpcPodConfig:
