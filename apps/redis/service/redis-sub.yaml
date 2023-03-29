@@ -6,9 +6,9 @@ metadata:
   name: redis-enterprise-operator-sub
   namespace: supercloud
 spec:
-  channel: production
+  channel: 6.4.2
   installPlanApproval: Automatic
-  name: redis-enterprise-operator-sub
+  name: redis-enterprise-operator-cert
   source: certified-operators
   sourceNamespace: openshift-marketplace
   startingCSV: redis-enterprise-operator.v6.4.2-4.0
