@@ -6,12 +6,16 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "250"
 spec:
+  servicesRiggerSpec:
+    databaseServiceType: load_balancer
+    serviceNaming: redis-port
   nodes: 3
   persistentSpec:
     enabled: true
     storageClassName: ocs-storagecluster-cephfs
   uiServiceType: ClusterIP
   username: demo@redislabs.com
+  # ALLOW_EMPTY_PASSWORD: true
   redisEnterpriseNodeResources:
     limits:
       cpu: 4000m
