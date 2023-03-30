@@ -1,0 +1,55 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "250"
+  name: redis-standalone
+  namespace: supercloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: redis-standalone
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: redis-standalone
+        deployment: redis-standalone
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+    spec:
+      volumes:
+        - name: redis-standalone-volume-1
+          emptyDir: {}
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: redis-standalone
+          env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: 'yes'
+            - name: REDIS_PORT_NUMBER
+              value: '6379'
+          ports:
+            - containerPort: 6379
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: redis-standalone-volume-1
+              mountPath: /var/lib/redis/data
+          terminationMessagePolicy: File
+          image: >-
+            registry.redhat.io/rhel8/redis-6@sha256:44c4305393e010404adb2fcb57140f0a4a1d05190251f57e6d1ef0fb40ec8460
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

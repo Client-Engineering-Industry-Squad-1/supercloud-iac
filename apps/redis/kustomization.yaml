@@ -1,7 +1,2 @@
 resources:
-- infra/redis-scc.yaml
-- infra/redis-sa.yaml
-- infra/redis-catalog.yaml
-- infra/redis-operatorgroup.yaml
-- service/redis-sub.yaml
-- service/redis-instance.yaml
+- service/redis-deployment.yaml
