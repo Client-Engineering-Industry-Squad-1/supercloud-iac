@@ -20,7 +20,7 @@ spec:
       containers:
         - name: supercloud-backend-app
           image: >-
-            image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-backend-app
+            image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-backend-app:latest
           env:
             - name: APPID_OAUTH_SERVER_URL
               value: >-
