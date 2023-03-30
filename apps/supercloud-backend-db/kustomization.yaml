@@ -3,12 +3,11 @@ resources:
 - instance/ops-manager-config-secret.yaml
 - instance/ops-manager-secrets.yaml
 - instance/mongodb-opsmanger.yaml
+- instance/mongo-operatorgroup.yaml
 #################################################################################
 ### MAKE SURE THE OPERATOR & OPS MANAGER READY BEFORE YOU DEPOL THE FOLLOWING ###
 #################################################################################
 - instance/mongodb-deployment.yaml
 - instance/mongodb-admin-user.yaml
 - instance/mongodb-supercloud.yaml
-### other ###
-# - operator/mongodb-og.yaml
-# - operator/mongodb-catalog.yaml
+- operator/mongodb-catalog.yaml
