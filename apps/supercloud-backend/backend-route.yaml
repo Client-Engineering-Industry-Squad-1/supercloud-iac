@@ -1,0 +1,20 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: supercloud-backend-route
+  namespace: supercloud
+  annotations:
+    argocd.argoproj.io/sync-wave: "270"
+spec:
+  host: >-
+    supercloud-backend-app-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+  to:
+    kind: Service
+    name: supercloud-backend-svc
+    weight: 100
+  port:
+    targetPort: 3001-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

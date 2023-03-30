@@ -1,21 +1,23 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '210'
-  name: release-name
-  labels:
-    app.kubernetes.io/name: base
-    helm.sh/chart: base-1.1.4
-    app.kubernetes.io/instance: release-name
-    app: release-name
+    argocd.argoproj.io/sync-wave: "260"
+  name: supercloud-backend-svc
+  namespace: supercloud
 spec:
-  type: ClusterIP
+  ipFamilies:
+    - IPv4
   ports:
-    - port: 80
-      targetPort: 3001
+    - name: 3001-tcp
       protocol: TCP
-      name: http
+      port: 3001
+      targetPort: 3001
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
   selector:
-    app.kubernetes.io/name: base
-    app.kubernetes.io/instance: release-name
+    app: supercloud-backend-app
+    deploymentconfig: supercloud-backend-app

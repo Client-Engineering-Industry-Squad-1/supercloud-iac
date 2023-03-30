@@ -1,4 +1,4 @@
 resources:
 - backend-deployment.yaml
-# - backend-ingress.yaml
+- backend-route.yaml
 - backend-service.yaml

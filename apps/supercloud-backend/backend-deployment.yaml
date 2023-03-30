@@ -1,85 +1,55 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '220'
-  name: release-name-base
-  annotations:
-  labels:
-    app.kubernetes.io/name: base
-    helm.sh/chart: base-1.1.4
-    app.kubernetes.io/instance: release-name
-    app: release-name
-    app.kubernetes.io/part-of: ascent
+    argocd.argoproj.io/sync-wave: "250"
+  name: supercloud-backend-app
+  namespace: supercloud
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: base
-      app.kubernetes.io/instance: release-name
+      app: supercloud-backend-app
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app.kubernetes.io/name: base
-        app.kubernetes.io/instance: release-name
+        app: supercloud-backend-app
+        deploymentconfig: supercloud-backend-app
     spec:
       containers:
-        - name: redis
-          image: bitnami/redis
-          ports:
-            - containerPort: 6379
-              name: redis
-              protocol: TCP
+        - name: supercloud-backend-app
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/supercloud/supercloud-backend@sha256:f940581f950b2be2abdbc480036299fd574275bd461979870c66ec835347e60d
           env:
-            - name: ALLOW_EMPTY_PASSWORD
-              value: "yes"
-        - name: base
-          image: "replace:replace"
-          imagePullPolicy: IfNotPresent
-
-          ports:
-            - name: http
-              containerPort: 3001
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: http
-          env:
-            - name: DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: ascent-mongo-config
-                  key: binding
+            - name: APPID_OAUTH_SERVER_URL
+              value: >-
+                https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31
             - name: STORAGE
-              valueFrom:
-                secretKeyRef:
-                  name: ascent-cos-config
-                  key: binding
-            - name: INSTANCE_ID
-              valueFrom:
-                configMapKeyRef:
-                  name: ascent
-                  key: instance-id
-            - name: BIFROST
-              valueFrom:
-                configMapKeyRef:
-                  name: ascent
-                  key: bifrost
-            - name: OCP_API_URL
-              valueFrom:
-                secretKeyRef:
-                  name: ascent-oauth-config
-                  key: api-url
-            - name: INGRESS_HOST
-              value: ""
-            - name: PROTOCOLS
-              value: ""
-            - name: LOG_LEVEL
-              value: "debug"
-          resources:
-            null
+              value: >-
+                {"apikey":"u_R_dSZiWiREiDMPOYjPCubipD2xXfDKJUpkNo85vuju","cos_hmac_keys":{"access_key_id":"f5dd0f1dae164a6ca03a977c84ab0899","secret_access_key":"859c04e9875f1a45f4b7dacd69a1ae08cc957ebe8933a596"},"endpoints":"https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints","iam_apikey_description":"Auto-generated
+                for key
+                f5dd0f1d-ae16-4a6c-a03a-977c84ab0899","iam_apikey_name":"WDP-Project-Management-5daf9993-ba77-4f82-85f4-1115059f3d06","iam_role_crn":"crn:v1:bluemix:public:iam::::serviceRole:Manager","iam_serviceid_crn":"crn:v1:bluemix:public:iam-identity::a/21498eca2c0e4a678df0cc3f06c4bc62::serviceid:ServiceId-b6ac425b-9309-4099-a680-f4a5d1bdf67b","resource_instance_id":"crn:v1:bluemix:public:cloud-object-storage:global:a/21498eca2c0e4a678df0cc3f06c4bc62:5daf9993-ba77-4f82-85f4-1115059f3d06::"}
+            - name: DATABASE
+              value: >-
+                {"connection":{"mongodb":{"authentication":{"method":"direct","password":"password","username":"superclouduser"},"composed":["mongodb://superclouduser:password@mongodb-cluster-svc:27017/supercloud"],"database":"supercloud","hosts":[{"hostname":"localhost","port":27017}],"path":"/supercloud"}}}
+            - name: REDIS_HOST
+              value: redis-standalone-service
+            - name: REDIS_PORT
+              value: '6379'
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
