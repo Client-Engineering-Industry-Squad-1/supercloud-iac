@@ -20,7 +20,7 @@ spec:
       containers:
         - name: supercloud-ui
           image: >-
-            image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-ui
+            image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-ui:latest
           env:
             - name: REACT_APP_MODE
               value: builder
