@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "250"
+  name: supercloud-ui
+  namespace: supercloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: supercloud-ui
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: supercloud-ui
+        deploymentconfig: supercloud-ui
+    spec:
+      containers:
+        - name: supercloud-ui
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/supercloud/supercloud-ui@sha256:8d8e2ac4e1534c3362d5575a3a02768e2210988812a5ac720176e636c1af85f1
+          env:
+            - name: REACT_APP_MODE
+              value: builder
+            - name: APP_URI
+              value: >-
+                https://supercloud-ui-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+            - name: API_HOST
+              value: >-
+                https://supercloud-backend-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+            - name: APPID_CONFIG
+              value: >-
+                {"clientId": "725c946d-643b-48dc-8e4c-4662552f031a","tenantId":
+                "e857d3b7-6785-44b5-a83a-d3c3b38aeb31","secret":
+                "NTk5YzA3MTQtNmVkNC00NjZkLThlZTMtYjY1M2JjY2VhNzY0","name":
+                "Super Cloud UI","oauthServerUrl":
+                "https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31","profilesUrl":
+                "https://us-south.appid.cloud.ibm.com","discoveryEndpoint":
+                "https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31/.well-known/openid-configuration","type":
+                "regularwebapp","scopes": []}
+            - name: EXTERNAL_HOSTNAME
+              value: >-
+                supercloud-ui-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+            - name: EXTERNAL_PROTOCOL
+              value: https
+            - name: EXTERNAL_PORT
+              value: '443'
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

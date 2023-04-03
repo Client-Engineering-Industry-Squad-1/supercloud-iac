@@ -1,0 +1,23 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: supercloud-ui
+  namespace: supercloud
+  annotations:
+    argocd.argoproj.io/sync-wave: "360"
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 3000-tcp
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: supercloud-ui
+    deploymentconfig: supercloud-ui

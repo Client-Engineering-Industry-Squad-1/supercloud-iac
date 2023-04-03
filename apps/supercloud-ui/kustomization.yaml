@@ -1,0 +1,4 @@
+resources:
+- supercloud-ui-deployment.yaml
+- supercloud-ui-service.yaml
+- supercloud-ui-route.yaml
