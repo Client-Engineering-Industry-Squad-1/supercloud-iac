@@ -1,14 +1,14 @@
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: supercloud-ui
+  name: supercloud-ui-route
   namespace: supercloud
   annotations:
     argocd.argoproj.io/sync-wave: "370"
 spec:
   to:
     kind: Service
-    name: supercloud-ui
+    name: supercloud-ui-svc
     weight: 100
   port:
     targetPort: 3000-tcp

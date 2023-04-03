@@ -3,22 +3,22 @@ apiVersion: apps/v1
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "350"
-  name: supercloud-ui
+  name: supercloud-ui-app
   namespace: supercloud
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: supercloud-ui
+      app: supercloud-ui-app
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: supercloud-ui
-        deploymentconfig: supercloud-ui
+        app: supercloud-ui-app
+        deploymentconfig: supercloud-ui-app
     spec:
       containers:
-        - name: supercloud-ui
+        - name: supercloud-ui-app
           image: >-
             image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-ui:latest
           env:

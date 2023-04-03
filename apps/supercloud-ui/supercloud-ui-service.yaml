@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: supercloud-ui
+  name: supercloud-ui-svc
   namespace: supercloud
   annotations:
     argocd.argoproj.io/sync-wave: "360"
@@ -19,5 +19,5 @@ spec:
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
-    app: supercloud-ui
-    deploymentconfig: supercloud-ui
+    app: supercloud-ui-app
+    deploymentconfig: supercloud-ui-app
