@@ -42,7 +42,7 @@ spec:
                 "regularwebapp","scopes": []}
             - name: EXTERNAL_HOSTNAME
               value: >-
-                supercloud-ui-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+                supercloud-ui-route-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
             - name: EXTERNAL_PROTOCOL
               value: https
             - name: EXTERNAL_PORT
