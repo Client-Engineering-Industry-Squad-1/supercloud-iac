@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "250"
+    argocd.argoproj.io/sync-wave: "350"
   name: supercloud-ui
   namespace: supercloud
 spec:
@@ -20,7 +20,7 @@ spec:
       containers:
         - name: supercloud-ui
           image: >-
-            image-registry.openshift-image-registry.svc:5000/supercloud/supercloud-ui@sha256:8d8e2ac4e1534c3362d5575a3a02768e2210988812a5ac720176e636c1af85f1
+            image-registry.openshift-image-registry.svc:5000/supercloud/supercloud-ui:latest
           env:
             - name: REACT_APP_MODE
               value: builder
