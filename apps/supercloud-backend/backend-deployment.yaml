@@ -25,6 +25,12 @@ spec:
             - name: APPID_OAUTH_SERVER_URL
               value: >-
                 https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31
+            - name: APPID_CLIENT_ID
+              value: >-
+                4e22bc12-ec49-4f79-9cbd-cb48ef7d991f
+            - name: APPID_CLIENT_SECRET
+              value: >-
+                YTBkMDZjN2YtMGE4NS00N2E4LWIwNWItMDNjNTBkMWNmMGVl
             - name: STORAGE
               value: >-
                 {"apikey":"u_R_dSZiWiREiDMPOYjPCubipD2xXfDKJUpkNo85vuju","cos_hmac_keys":{"access_key_id":"f5dd0f1dae164a6ca03a977c84ab0899","secret_access_key":"859c04e9875f1a45f4b7dacd69a1ae08cc957ebe8933a596"},"endpoints":"https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints","iam_apikey_description":"Auto-generated
