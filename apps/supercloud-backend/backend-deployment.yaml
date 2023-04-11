@@ -24,7 +24,7 @@ spec:
           env:
             - name: APP_URL
               value: >-
-                https://supercloud-backend-app-supercloud-build.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+                https://supercloud-backend-route-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
             - name: APPID_OAUTH_SERVER_URL
               value: >-
                 https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31
