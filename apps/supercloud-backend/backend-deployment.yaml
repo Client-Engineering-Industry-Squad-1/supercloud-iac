@@ -22,6 +22,9 @@ spec:
           image: >-
             image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-backend-app:latest
           env:
+            - name: APP_URL
+              value: >-
+                https://supercloud-backend-app-supercloud-build.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com 
             - name: APPID_OAUTH_SERVER_URL
               value: >-
                 https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31
@@ -43,6 +46,15 @@ spec:
               value: redis-standalone-service
             - name: REDIS_PORT
               value: '6379'
+            - name: ANSIBLE_API_URL
+              value: >-
+                https://ansible-controller-aap.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com/api/v2
+            - name: ANSIBLE_DEPLOY_JOB_TEMPLATE_ID
+              value: '9'
+            - name: ANSIBLE_PLATFORM_USERNAME
+              value: admin
+            - name: ANSIBLE_PLATFORM_PASSWORD
+              value: Yt2ohNwI5D93W5zRwk1rnfQ6G1b98avD
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
