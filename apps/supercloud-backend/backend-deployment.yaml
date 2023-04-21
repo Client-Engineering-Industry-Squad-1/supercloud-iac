@@ -36,7 +36,7 @@ spec:
                 YTBkMDZjN2YtMGE4NS00N2E4LWIwNWItMDNjNTBkMWNmMGVl
             - name: STORAGE
               value: >-
-                {"apikey":"u_R_dSZiWiREiDMPOYjPCubipD2xXfDKJUpkNo85vuju","cos_hmac_keys":{"access_key_id":"f5dd0f1dae164a6ca03a977c84ab0899","secret_access_key":"859c04e9875f1a45f4b7dacd69a1ae08cc957ebe8933a596"},"endpoints":"https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints","iam_apikey_description":"Auto-generated
+                {"apikey":"u_R_dSZiWiREiDMPOYjPCubipD2xXfDKJUpkNo85vuju","cos_hmac_keys":{"access_key_id":"f5dd0f1dae164a6ca03a977c84ab0899","secret_access_key":"859c04e9875f1a45f4b7dacd69a1ae08cc957ebe8933a596"},"endpoints":"https://s3.us-east.cloud-object-storage.appdomain.cloud","iam_apikey_description":"Auto-generated
                 for key
                 f5dd0f1d-ae16-4a6c-a03a-977c84ab0899","iam_apikey_name":"WDP-Project-Management-5daf9993-ba77-4f82-85f4-1115059f3d06","iam_role_crn":"crn:v1:bluemix:public:iam::::serviceRole:Manager","iam_serviceid_crn":"crn:v1:bluemix:public:iam-identity::a/21498eca2c0e4a678df0cc3f06c4bc62::serviceid:ServiceId-b6ac425b-9309-4099-a680-f4a5d1bdf67b","resource_instance_id":"crn:v1:bluemix:public:cloud-object-storage:global:a/21498eca2c0e4a678df0cc3f06c4bc62:5daf9993-ba77-4f82-85f4-1115059f3d06::"}
             - name: DATABASE
@@ -55,6 +55,8 @@ spec:
               value: admin
             - name: ANSIBLE_PLATFORM_PASSWORD
               value: Yt2ohNwI5D93W5zRwk1rnfQ6G1b98avD
+            - name: INSTANCE_ID
+              value: supercloud
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
