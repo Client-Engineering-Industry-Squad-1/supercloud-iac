@@ -1,4 +1,5 @@
 resources:
+- image-registry-secret.yaml
 - backend-deployment.yaml
 - backend-route.yaml
 - backend-service.yaml
