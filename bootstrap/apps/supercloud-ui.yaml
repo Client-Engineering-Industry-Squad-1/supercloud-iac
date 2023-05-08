@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Client-Engineering-Industry-Squad-1/supercloud-iac.git
     path: apps/supercloud-ui
+    targetRevision: migration
   destination:
     server: https://kubernetes.default.svc
     namespace: supercloud
