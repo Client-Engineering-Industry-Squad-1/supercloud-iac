@@ -4,7 +4,7 @@ metadata:
   name: supercloud-backend-route
   namespace: supercloud
   annotations:
-    argocd.argoproj.io/sync-wave: "270"
+    argocd.argoproj.io/sync-wave: "370"
 spec:
   to:
     kind: Service

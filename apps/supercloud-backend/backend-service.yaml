@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "260"
+    argocd.argoproj.io/sync-wave: "360"
   name: supercloud-backend-svc
   namespace: supercloud
 spec:
