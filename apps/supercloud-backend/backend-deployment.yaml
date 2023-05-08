@@ -21,6 +21,8 @@ spec:
         - name: supercloud-backend-app
           image: >-
             image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-backend-app:latest
+          imagePullSecrets:
+          - name: supercloud-image-registry
           env:
             - name: APP_URL
               value: >-
