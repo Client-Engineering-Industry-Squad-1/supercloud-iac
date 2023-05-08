@@ -21,8 +21,6 @@ spec:
         - name: supercloud-backend-app
           image: >-
             image-registry.openshift-image-registry.svc:5000/supercloud-build/supercloud-backend-app:latest
-          imagePullSecrets:
-          - name: supercloud-image-registry
           env:
             - name: APP_URL
               value: >-
@@ -63,6 +61,8 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
+      imagePullSecrets:
+        - name: supercloud-image-registry
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
