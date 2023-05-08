@@ -1,9 +1,10 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
+  generateName: mongodb-
   annotations:
-    argocd.argoproj.io/sync-wave: '100'
-  name: supercloud-og
+    argocd.argoproj.io/sync-wave: '105'
+  name: mongodb-operator-group
   namespace: supercloud
 spec:
   targetNamespaces:
