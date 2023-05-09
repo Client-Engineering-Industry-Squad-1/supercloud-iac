@@ -24,7 +24,7 @@ spec:
           env:
             - name: APP_URL
               value: >-
-                https://supercloud-backend-route-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+                https://supercloud-backend-route-supercloud.apps.ocp-55000351na-na1o.cloud.techzone.ibm.com
             - name: APPID_OAUTH_SERVER_URL
               value: >-
                 https://us-south.appid.cloud.ibm.com/oauth/v4/e857d3b7-6785-44b5-a83a-d3c3b38aeb31
@@ -48,13 +48,13 @@ spec:
               value: '6379'
             - name: ANSIBLE_API_URL
               value: >-
-                https://ansible-controller-aap.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com/api/v2
+                https://automation-controller-aap.apps.ocp-55000351na-na1o.cloud.techzone.ibm.com/api/v2
             - name: ANSIBLE_DEPLOY_JOB_TEMPLATE_ID
               value: '9'
             - name: ANSIBLE_PLATFORM_USERNAME
               value: admin
             - name: ANSIBLE_PLATFORM_PASSWORD
-              value: Yt2ohNwI5D93W5zRwk1rnfQ6G1b98avD
+              value: g6xv97xSziePGlMbWgCbZLGyQpyfKV1r
             - name: INSTANCE_ID
               value: supercloud
           resources: {}

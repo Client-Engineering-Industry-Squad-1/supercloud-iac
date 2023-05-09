@@ -28,10 +28,10 @@ spec:
               value: builder
             - name: APP_URI
               value: >-
-                https://supercloud-ui-route-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+                https://supercloud-ui-route-supercloud.apps.ocp-55000351na-na1o.cloud.techzone.ibm.com
             - name: API_HOST
               value: >-
-                https://supercloud-backend-route-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+                https://supercloud-backend-route-supercloud.apps.ocp-55000351na-na1o.cloud.techzone.ibm.com
             - name: APPID_CONFIG
               value: >-
                 {"clientId": "725c946d-643b-48dc-8e4c-4662552f031a","tenantId":
@@ -44,7 +44,7 @@ spec:
                 "regularwebapp","scopes": []}
             - name: EXTERNAL_HOSTNAME
               value: >-
-                supercloud-ui-route-supercloud.apps.ocp-55000351na-hlr0.cloud.techzone.ibm.com
+                supercloud-ui-route-supercloud.apps.ocp-55000351na-na1o.cloud.techzone.ibm.com
             - name: EXTERNAL_PROTOCOL
               value: https
             - name: EXTERNAL_PORT
